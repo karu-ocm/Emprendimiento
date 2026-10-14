@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYA | KEDESH ADONAI â€” Ropa de Fardo Seleccionada al Detalle</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display for headers, Great Vibes for elegant gold script, Montserrat for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        script: ['Great Vibes', 'cursive'],
+                    },
+                    colors: {
+                        kyaLilacLight: '#F4E8FF',
+                        kyaLilac: '#D8B4F8',
+                        kyaLilacDeep: '#B072E8',
+                        kyaPinkLight: '#FFF0F5',
+                        kyaPink: '#FFB6C1',
+                        kyaPinkBright: '#FF6B95',
+                        kyaGold: '#FFD700',
+                        kyaGoldDark: '#D4AF37',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FAF5FF;
+            color: #4A3B52;
+            overflow-x: hidden;
+        }
+
+        .font-serif-custom {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-script-custom {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        /* Gold metallic shiny text effect */
+        .gold-text-glow {
+            color: #FFD700;
+            background: linear-gradient(135deg, #FFF6BD 0%, #FFD700 40%, #D4AF37 70%, #FFF2A1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 2px 4px rgba(212, 175, 55, 0.4));
+        }
+
+        /* Sparkling keyframes */
+        @keyframes sparkleTwinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); filter: drop-shadow(0 0 2px #FFD700); }
+            50% { opacity: 1; transform: scale(1.3) rotate(15deg); filter: drop-shadow(0 0 10px #FFD700); }
+        }
+
+        @keyframes floatMagic {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+
+        @keyframes pulseWhatsapp {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+            50% { box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); }
+        }
+
+        @keyframes shimmerGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .sparkle-icon {
+            animation: sparkleTwinkle 2.5s infinite ease-in-out;
+        }
+
+        .sparkle-icon-delayed {
+            animation: sparkleTwinkle 3.2s infinite ease-in-out 1.2s;
+        }
+
+        .animate-float {
+            animation: floatMagic 6s ease-in-out infinite;
+        }
+
+        .whatsapp-pulse {
+            animation: pulseWhatsapp 2s infinite;
+        }
+
+        .bg-sparkle-gradient {
+            background: linear-gradient(-45deg, #FAF5FF, #FFF0F5, #F3E8FF, #FFE4E6);
+            background-size: 400% 400%;
+            animation: shimmerGlow 12s ease infinite;
+        }
+
+        /* Glassmorphism Cards for Light Theme */
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(216, 180, 248, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(176, 114, 232, 0.15);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card-light:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 107, 149, 0.5);
+            box-shadow: 0 20px 40px -10px rgba(255, 107, 149, 0.25);
+        }
+
+        /* Pure CSS Tabs Logic */
+        .tab-radio {
+            display: none;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        #tab-all:checked ~ .tabs-container #content-all,
+        #tab-urban:checked ~ .tabs-container #content-urban,
+        #tab-vintage:checked ~ .tabs-container #content-vintage,
+        #tab-denim:checked ~ .tabs-container #content-denim,
+        #tab-abrigos:checked ~ .tabs-container #content-abrigos {
+            display: grid;
+        }
+
+        .tab-label {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #tab-all:checked ~ .tab-nav label[for="tab-all"],
+        #tab-urban:checked ~ .tab-nav label[for="tab-urban"],
+        #tab-vintage:checked ~ .tab-nav label[for="tab-vintage"],
+        #tab-denim:checked ~ .tab-nav label[for="tab-denim"],
+        #tab-abrigos:checked ~ .tab-nav label[for="tab-abrigos"] {
+            background-color: #B072E8;
+            color: #ffffff;
+            box-shadow: 0 8px 20px -4px rgba(176, 114, 232, 0.4);
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF5FF;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D8B4F8;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B072E8;
+        }
+    </style>
+</head>
+<body class="selection:bg-kyaLilacDeep selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-purple-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo with Golden Crown -->
+            <a href="#" class="flex flex-col items-start group">
+                <div class="flex items-center gap-1.5">
+                    <span class="text-3xl font-extrabold tracking-wider font-serif-custom text-purple-950 group-hover:text-kyaPinkBright transition-colors">KYA</span>
+                    <i class="fa-solid fa-crown text-xl gold-text-glow transform -rotate-12 group-hover:rotate-0 transition-transform duration-300"></i>
+                </div>
+                <span class="text-xl sm:text-2xl font-script-custom gold-text-glow font-bold -mt-2 tracking-wide">
+                    Kedesh Adonai
+                </span>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-purple-900">
+                <a href="#inicio" class="hover:text-kyaPinkBright transition-colors">Inicio</a>
+                <a href="#catalogo" class="hover:text-kyaPinkBright transition-colors">CategorÃ­as</a>
+                <a href="#beneficios" class="hover:text-kyaPinkBright transition-colors">Â¿Por quÃ© KYA?</a>
+                <a href="#pasos" class="hover:text-kyaPinkBright transition-colors">CÃ³mo Comprar</a>
+            </nav>
+
+            <!-- WhatsApp Direct Button -->
+            <div>
+                <a href="https://wa.me/542233008876?text=Hola%20KYA!%20Quiero%20consultar%20por%20las%20prendas%20disponibles." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm shadow-md shadow-emerald-500/30 transition-all hover:scale-105 active:scale-95">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Escribinos al WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen bg-sparkle-gradient flex items-center justify-center pt-28 pb-16 px-6 overflow-hidden">
+        <!-- Floating Sparkles & Ambient Glows -->
+        <div class="absolute top-1/4 left-8 w-72 h-72 bg-purple-300/30 rounded-full blur-3xl pointer-events-none animate-float"></div>
+        <div class="absolute bottom-12 right-12 w-80 h-80 bg-pink-300/30 rounded-full blur-3xl pointer-events-none animate-float" style="animation-delay: 2s;"></div>
+
+        <!-- Floating Magic Sparkle Elements -->
+        <div class="absolute top-32 left-1/6 text-yellow-400 text-2xl sparkle-icon pointer-events-none">âœ¨</div>
+        <div class="absolute top-1/2 right-12 text-pink-400 text-3xl sparkle-icon-delayed pointer-events-none">ðŸ’–</div>
+        <div class="absolute bottom-32 left-16 text-purple-400 text-2xl sparkle-icon pointer-events-none">â­</div>
+        <div class="absolute top-40 right-1/4 text-yellow-400 text-xl sparkle-icon-delayed pointer-events-none">ðŸ‘‘</div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 border border-purple-200 text-purple-800 text-xs sm:text-sm font-semibold mb-8 shadow-sm">
+                <span class="text-yellow-500">ðŸ‘‘</span>
+                <span>Ropa de Fardo por Menor &bull; Excelente Calidad & Precio</span>
+                <span class="text-pink-400">âœ¨</span>
+            </div>
+
+            <!-- Crown & Title Header -->
+            <div class="flex justify-center items-center gap-3 mb-2">
+                <i class="fa-solid fa-crown text-4xl sm:text-5xl gold-text-glow animate-bounce"></i>
+            </div>
+            
+            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-2 text-purple-950 font-serif-custom">
+                KYA
+            </h1>
+            
+            <p class="text-3xl sm:text-5xl font-script-custom gold-text-glow font-bold mb-8">
+                Kedesh Adonai
+            </p>
+
+            <!-- Exact Requested Main Hero Tagline -->
+            <p class="text-lg sm:text-2xl text-purple-900 font-medium leading-relaxed max-w-3xl mx-auto mb-10 glass-card-light p-6 sm:p-8 rounded-3xl border border-purple-200 shadow-xl">
+                "Cada prenda tiene una historia y un propÃ³sito. En <strong class="text-purple-950 font-bold">KYA</strong> traemos prendas de excelente calidad que reflejan tu verdadera esencia."
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="https://wa.me/542233008876?text=Hola%20KYA!%20Me%20gustaria%20ver%20las%20prendas%20disponibles%20por%20menor." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold px-8 py-4 rounded-2xl text-base shadow-lg shadow-emerald-500/30 transition-all hover:scale-105 active:scale-95">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Pedir CatÃ¡logo por WhatsApp</span>
+                </a>
+                <a href="#catalogo" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/90 hover:bg-white text-purple-900 font-semibold px-8 py-4 rounded-2xl text-base border border-purple-200 shadow-sm transition-all hover:border-purple-300">
+                    <span>Ver CategorÃ­as</span>
+                    <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Feature Pills -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-3 gap-4 text-left max-w-3xl mx-auto">
+                <div class="bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-purple-100 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-500 flex items-center justify-center font-bold text-lg">ðŸ›ï¸</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-purple-950">Venta Minorista</h4>
+                        <p class="text-[11px] text-purple-700">LlevÃ¡s desde 1 prenda</p>
+                    </div>
+                </div>
+                <div class="bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-purple-100 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-lg">ðŸ’Ž</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-purple-950">Excelente Calidad</h4>
+                        <p class="text-[11px] text-purple-700">Prendas seleccionadas</p>
+                    </div>
+                </div>
+                <div class="bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-purple-100 flex items-center gap-3 col-span-2 md:col-span-1">
+                    <div class="w-10 h-10 rounded-xl bg-yellow-100 text-yellow-600 flex items-center justify-center font-bold text-lg">âœ¨</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-purple-950">Mejor Precio</h4>
+                        <p class="text-[11px] text-purple-700">Moda accesible</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog / Categories Section -->
+    <section id="catalogo" class="py-24 px-6 bg-white relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-kyaPinkBright font-bold tracking-widest uppercase text-xs">ColecciÃ³n KYA âœ¨</span>
+                <h2 class="text-3xl sm:text-5xl font-bold mt-2 font-serif-custom text-purple-950">Nuestras CategorÃ­as</h2>
+                <p class="text-purple-800 mt-4 text-sm sm:text-base">Prendas de fardo seleccionadas de la mÃ¡s alta calidad para que armes tus outfits con personalidad Ãºnica.</p>
+            </div>
+
+            <!-- CSS Radio Tabs Setup -->
+            <input type="radio" name="tabs" id="tab-all" checked class="tab-radio">
+            <input type="radio" name="tabs" id="tab-urban" class="tab-radio">
+            <input type="radio" name="tabs" id="tab-vintage" class="tab-radio">
+            <input type="radio" name="tabs" id="tab-denim" class="tab-radio">
+            <input type="radio" name="tabs" id="tab-abrigos" class="tab-radio">
+
+            <!-- Tab Buttons -->
+            <div class="tab-nav flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12">
+                <label for="tab-all" class="tab-label px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-purple-50 text-purple-800 hover:bg-purple-100">Todas las prendas</label>
+                <label for="tab-urban" class="tab-label px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-purple-50 text-purple-800 hover:bg-purple-100">Urban & Casual</label>
+                <label for="tab-vintage" class="tab-label px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-purple-50 text-purple-800 hover:bg-purple-100">Vintage & Retro</label>
+                <label for="tab-denim" class="tab-label px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-purple-50 text-purple-800 hover:bg-purple-100">Denim Exclusivo</label>
+                <label for="tab-abrigos" class="tab-label px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-purple-50 text-purple-800 hover:bg-purple-100">Abrigos & Sweaters</label>
+            </div>
+
+            <!-- Tabs Container -->
+            <div class="tabs-container">
+                <!-- ALL ITEMS -->
+                <div id="content-all" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Item 1 -->
+                    <div class="glass-card-light rounded-3xl overflow-hidden group">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Buzo Urban" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-purple-600/90 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Urban</span>
+                            <span class="absolute top-3 right-3 bg-yellow-400 text-purple-950 text-[10px] font-black px-2.5 py-1 rounded-full">âœ¨ Impecable</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-purple-950 mb-1">Hoodie Oversize Importado</h3>
+                            <p class="text-xs text-purple-700 mb-4">Calidad Premium &bull; Talle M/L</p>
+                            <a href="https://wa.me/542233008876?text=Hola%20KYA!%20Quiero%20consultar%20por%20el%20Hoodie%20Oversize%20Importado." target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-xs shadow-md shadow-emerald-500/20 hover:scale-[1.02] transition-transform">
+                                <i class="fa-brands fa-whatsapp text-sm mr-1.5"></i> Consultar Disponibilidad
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="glass-card-light rounded-3xl overflow-hidden group">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80" alt="Camisa Vintage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-pink-500/90 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Vintage</span>
+                            <span class="absolute top-3 right-3 bg-yellow-400 text-purple-950 text-[10px] font-black px-2.5 py-1 rounded-full">ðŸ‘‘ Pieza Ãšnica</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-purple-950 mb-1">Camisa Estampada 90s</h3>
+                            <p class="text-xs text-purple-700 mb-4">Seda Ligera &bull; Talle M</p>
+                            <a href="https://wa.me/542233008876?text=Hola%20KYA!%20Quiero%20consultar%20por%20la%20Camisa%20Estampada%2090s." target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-xs shadow-md shadow-emerald-500/20 hover:scale-[1.02] transition-transform">
+                                <i class="fa-brands fa-whatsapp text-sm mr-1.5"></i> Consultar Disponibilidad
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="glass-card-light rounded-3xl overflow-hidden group">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80" alt="Chaqueta Denim" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-blue-600/90 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Denim</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-purple-950 mb-1">Campera Jean Rigido USA</h3>
+                            <p class="text-xs text-purple-700 mb-4">Excelente estado &bull; Talle L</p>
+                            <a href="https://wa.me/542233008876?text=Hola%20KYA!%20Quiero%20consultar%20por%20la%20Campera%20Jean%20Rigido%20USA." target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-xs shadow-md shadow-emerald-500/20 hover:scale-[1.02] transition-transform">
+                                <i class="fa-brands fa-whatsapp text-sm mr-1.5"></i> Consultar Disponibilidad
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="glass-card-light rounded-3xl overflow-hidden group">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=800&q=80" alt="Tapado abrigo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-amber-600/90 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Abrigos</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-purple-950 mb-1">Tapado Lana Soft Pastel</h3>
+                            <p class="text-xs text-purple-700 mb-4">SÃºper abrigado &bull; Talle S/M</p>
+                            <a href="https://wa.me/542233008876?text=Hola%20KYA!%20Quiero%20consultar%20por%20el%20Tapado%20Lana%20Soft%20Pastel." target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-xs shadow-md shadow-emerald-500/20 hover:scale-[1.02] transition-transform">
+                                <i class="fa-brands fa-whatsapp text-sm mr-1.5"></i> Consultar Disponibilidad
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- URBAN -->
+                <div id="content-urban" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="glass-card-light rounded-3xl overflow-hidden group">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Buzo Urban" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-purple-950 mb-1">Hoodie Oversize Importado</h3>
+                            <a href="https://wa.me/542233008876?text=Hola%20KYA!%20Quiero%20consultar%20por%20el%20Hoodie%20Oversize." target="_blank" class="block w-full text-center py-3 rounded-2xl bg-emerald-500 text-white font-bold text-xs">Consultar por WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VINTAGE -->
+                <div id="content-vintage" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="glass-card-light rounded-3xl overflow-hidden group">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80" alt="Camisa Vintage" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-purple-950 mb-1">Camisa Estampada 90s</h3>
+                            <a href="https://wa.me/542233008876?text=Hola%20KYA!%20Quiero%20consultar%20por%20la%20Camisa%20Vintage." target="_blank" class="block w-full text-center py-3 rounded-2xl bg-emerald-500 text-white font-bold text-xs">Consultar por WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DENIM -->
+                <div id="content-denim" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="glass-card-light rounded-3xl overflow-hidden group">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80" alt="Chaqueta Denim" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-purple-950 mb-1">Campera Jean Rigido USA</h3>
+                            <a href="https://wa.me/542233008876?text=Hola%20KYA!%20Quiero%20consultar%20por%20la%20Campera%20Jean." target="_blank" class="block w-full text-center py-3 rounded-2xl bg-emerald-500 text-white font-bold text-xs">Consultar por WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABRIGOS -->
+                <div id="content-abrigos" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="glass-card-light rounded-3xl overflow-hidden group">
+                        <div class="h-80 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=800&q=80" alt="Tapado abrigo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-purple-950 mb-1">Tapado Lana Soft Pastel</h3>
+                            <a href="https://wa.me/542233008876?text=Hola%20KYA!%20Quiero%20consultar%20por%20el%20Tapado." target="_blank" class="block w-full text-center py-3 rounded-2xl bg-emerald-500 text-white font-bold text-xs">Consultar por WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose KYA Section -->
+    <section id="beneficios" class="py-24 px-6 bg-sparkle-gradient relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-purple-600 font-bold tracking-widest uppercase text-xs">Ventajas Exclusivas ðŸ‘‘</span>
+                <h2 class="text-3xl sm:text-5xl font-bold mt-2 font-serif-custom text-purple-950">Â¿Por quÃ© elegir KYA?</h2>
+                <p class="text-purple-800 mt-4 text-sm sm:text-base">Hacemos que comprar ropa de fardo sea una experiencia alegre, fÃ¡cil y confiable.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Benefit 1 -->
+                <div class="glass-card-light p-8 rounded-3xl text-center">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-pink-100 text-pink-500 flex items-center justify-center text-2xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-purple-950 mb-2">Calidad Insuperable</h3>
+                    <p class="text-xs text-purple-800 leading-relaxed">Seleccionamos Ãºnicamente prendas que estÃ©n en Ã³ptimas condiciones para que te luzcas siempre.</p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="glass-card-light p-8 rounded-3xl text-center">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-tag"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-purple-950 mb-2">Precios Accesibles</h3>
+                    <p class="text-xs text-purple-800 leading-relaxed">Precios minoristas super competitivos para renovar tu placard sin gastar de mÃ¡s.</p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="glass-card-light p-8 rounded-3xl text-center">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-yellow-100 text-yellow-600 flex items-center justify-center text-2xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-purple-950 mb-2">AtenciÃ³n Cercana</h3>
+                    <p class="text-xs text-purple-800 leading-relaxed">Te pasamos fotos detalladas, medidas exactas y te asesoramos directo por WhatsApp.</p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="glass-card-light p-8 rounded-3xl text-center">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-purple-950 mb-2">Moda Sostenible</h3>
+                    <p class="text-xs text-purple-800 leading-relaxed">Comprar fardo minorista apoya el consumo responsable y le da nueva vida a grandes prendas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to buy steps -->
+    <section id="pasos" class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="text-kyaPinkBright font-bold tracking-widest uppercase text-xs">SÃºper FÃ¡cil âœ¨</span>
+            <h2 class="text-3xl sm:text-4xl font-bold mt-2 font-serif-custom text-purple-950 mb-12">CÃ³mo Comprar en KYA</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 rounded-3xl bg-purple-50 border border-purple-100 relative">
+                    <span class="w-10 h-10 rounded-full bg-kyaPinkBright text-white font-black flex items-center justify-center mx-auto mb-4 text-lg">1</span>
+                    <h3 class="font-bold text-purple-950 mb-2">ElegÃ­ tu Prenda</h3>
+                    <p class="text-xs text-purple-800">MirÃ¡ nuestras imÃ¡genes o pedinos el catÃ¡logo completo por WhatsApp.</p>
+                </div>
+
+                <div class="p-6 rounded-3xl bg-purple-50 border border-purple-100 relative">
+                    <span class="w-10 h-10 rounded-full bg-kyaLilacDeep text-white font-black flex items-center justify-center mx-auto mb-4 text-lg">2</span>
+                    <h3 class="font-bold text-purple-950 mb-2">ConsultÃ¡ Medidas</h3>
+                    <p class="text-xs text-purple-800">Te enviamos fotos reales, estado y medidas para tu total tranquilidad.</p>
+                </div>
+
+                <div class="p-6 rounded-3xl bg-purple-50 border border-purple-100 relative">
+                    <span class="w-10 h-10 rounded-full bg-emerald-500 text-white font-black flex items-center justify-center mx-auto mb-4 text-lg">3</span>
+                    <h3 class="font-bold text-purple-950 mb-2">CoordinÃ¡ el EnvÃ­o</h3>
+                    <p class="text-xs text-purple-800">AsegurÃ¡s tu prenda con pago rÃ¡pido y coordinamos la entrega.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final Banner -->
+    <section class="py-20 px-6 bg-sparkle-gradient text-center">
+        <div class="max-w-3xl mx-auto glass-card-light p-10 sm:p-14 rounded-3xl border border-purple-200">
+            <i class="fa-solid fa-crown text-4xl gold-text-glow mb-4"></i>
+            <h2 class="text-3xl sm:text-5xl font-bold font-serif-custom text-purple-950 mb-4">Â¿Lista para renovar tu look?</h2>
+            <p class="text-purple-800 text-sm sm:text-base mb-8">Escribinos ahora mismo. Te respondemos de inmediato con la mejor onda.</p>
+            
+            <a href="https://wa.me/542233008876?text=Hola%20KYA!%20Quiero%20hacer%20una%20consulta%20por%20prendas." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold px-9 py-4 rounded-2xl text-base shadow-lg shadow-emerald-500/30 whatsapp-pulse transition-all hover:scale-105">
+                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                <span>Chatear por WhatsApp</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-purple-950 text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex flex-col items-center md:items-start">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl font-extrabold font-serif-custom text-white">KYA</span>
+                    <i class="fa-solid fa-crown text-lg gold-text-glow"></i>
+                </div>
+                <span class="text-xl font-script-custom gold-text-glow font-bold -mt-1">Kedesh Adonai</span>
+            </div>
+
+            <p class="text-xs text-purple-300">Ropa de fardo seleccionada al detalle</p>
+        </div>
+    </footer>
+</body>
+</html>
